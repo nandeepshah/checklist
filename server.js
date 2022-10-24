@@ -18,7 +18,7 @@ app.use(express.json()); //lets server parse json
 app.use(cookieParser()); //lets server parse cookies
 app.use('/', express.static(path.join(__dirname, 'public'))); //sends static files
 app.use('/', require('./routes/root')); //sends the index.html page when we go to root localhost:3500
-
+app.use('/users', require('./routes/userRoutes'));
 //sends a 404 after all middleware didnt catch the request
 app.all('*', (req, res) => {
 	res.status(404);
